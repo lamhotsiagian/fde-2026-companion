@@ -1,0 +1,20 @@
+# L1/L2 — PII redaction rules. Redacted spans become "[<NAME>_REDACTED]"
+# (name upper-cased). Rules run in file order; keep the cheapest first.
+# Never delete a rule — set `enabled: false` and say why in `note`, so the
+# file itself is the retirement record.
+rules:
+  - name: email
+    pattern: '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b'
+    note: RFC-ish address shape; fast path before any NER pass.
+
+  - name: phone
+    pattern: '\b(?:\+?\d{1,3}[\s.-]?)?(?:\(\d{2,4}\)[\s.-]?)?\d{3,4}[\s.-]?\d{4}\b'
+    note: International and US shapes with common separators.
+
+  - name: credit_card
+    pattern: '\b(?:\d[ -]?){13,19}\b'
+    note: 13-19 digit PAN with optional space/dash separators.
+
+  - name: ssn
+    pattern: '\b\d{3}-\d{2}-\d{4}\b'
+    note: US Social Security Number.

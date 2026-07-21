@@ -1,0 +1,127 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: fde_system_rag_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-test}
+      POSTGRES_DB: ${POSTGRES_DATABASE:-fde_system_rag_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - fde_system_rag_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DATABASE:-fde_system_rag_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - fde_system_rag_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fde_system_rag_backend
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - TAVILY_API_KEY=${TAVILY_API_KEY}
+      - MODEL_PROVIDER=${MODEL_PROVIDER:-ollama}
+      - MODEL_NAMES=${MODEL_NAMES:-["llama3.2:1b"]}
+      - MODEL_BASE_URL=http://host.docker.internal:11434
+      - EMBEDDINGS_MODEL_NAME=${EMBEDDINGS_MODEL_NAME:-nomic-embed-text:latest}
+      - EMBEDDINGS_BASE_URL=http://host.docker.internal:11434
+      - TOKEN_BEARER_URL=${TOKEN_BEARER_URL:-/api/v1/auth/login}
+      - JWT_SECRET=${JWT_SECRET:-f7410f8d0107749f066a06b360288d1d92bc8f9c23e3326d069793743d4992f2}
+      - JWT_ALGORITHM=${JWT_ALGORITHM:-HS256}
+      - ACCESS_TOKEN_EXPIRY_MINS=${ACCESS_TOKEN_EXPIRY_MINS:-1440}
+      - REFRESH_TOKEN_EXPIRY_DAYS=${REFRESH_TOKEN_EXPIRY_DAYS:-1}
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-test}
+      - POSTGRES_DATABASE=${POSTGRES_DATABASE:-fde_system_rag_db}
+      - PGVECTOR_COLLECTION_NAME=${PGVECTOR_COLLECTION_NAME:-fde_system_rag_collection}
+      - REDIS_URL=redis://redis:6379/0
+      - MEMORY_DECAY_RATE=${MEMORY_DECAY_RATE:-0.05}
+      - MEMORY_MAX_AGE_DAYS=${MEMORY_MAX_AGE_DAYS:-30}
+      - MEMORY_CONSOLIDATION_INTERVAL=${MEMORY_CONSOLIDATION_INTERVAL:-10}
+      - MEMORY_IMPORTANCE_THRESHOLD=${MEMORY_IMPORTANCE_THRESHOLD:-0.3}
+      # --- Guardrails (app/guardrails/config.py) ---
+      - GUARD_ENABLED=${GUARD_ENABLED:-true}
+      - GUARD_CLASSIFIER_MODEL=${GUARD_CLASSIFIER_MODEL:-llama3.2:1b}
+      - GUARD_JUDGE_MODEL=${GUARD_JUDGE_MODEL:-llama3.1}
+      - GUARD_RATE_LIMIT_RPM=${GUARD_RATE_LIMIT_RPM:-30}
+      - GUARD_TOPIC_MIN_COSINE=${GUARD_TOPIC_MIN_COSINE:-0.72}
+      - GUARD_DOC_MIN_COSINE=${GUARD_DOC_MIN_COSINE:-0.65}
+      - GUARD_GROUNDING_MIN=${GUARD_GROUNDING_MIN:-0.7}
+      - GUARD_MAX_RETRIES=${GUARD_MAX_RETRIES:-2}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./logs:/app/logs
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - fde_system_rag_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: on-failure:3
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: fde_system_rag_frontend
+    environment:
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost:8000/api/v1
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - fde_system_rag_network
+    restart: on-failure:3
+
+  redis:
+    image: redis:7-alpine
+    container_name: fde_system_rag_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - fde_system_rag_redis_data:/data
+    networks:
+      - fde_system_rag_network
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fde_system_rag_worker
+    command: python -m arq app.ingestion.worker.WorkerSettings
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-test}
+      - POSTGRES_DATABASE=${POSTGRES_DATABASE:-fde_system_rag_db}
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - fde_system_rag_network
+    restart: on-failure:3
+
+volumes:
+  fde_system_rag_postgres_data:
+  fde_system_rag_redis_data:
+
+networks:
+  fde_system_rag_network:
+    driver: bridge

@@ -1,0 +1,3 @@
+Quarterly Performance Report Q3 2026.
+Revenue grew by 24% year-over-year.
+Key growth drivers: Enterprise AI RAG platform adoption and multi-tenant security features.

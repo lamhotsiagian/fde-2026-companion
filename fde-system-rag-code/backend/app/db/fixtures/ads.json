@@ -1,0 +1,29 @@
+[
+  {
+    "id": "d30b05b8-508b-4a52-b8bb-0a370e599981",
+    "name": "Sign up for streaming service Premium Video",
+    "tags": "ads,streaming,video,entertainment",
+    "description": "Unlimited movies, TV shows, and original series in 4K UHD. Try 30 days free.",
+    "category": "Entertainment",
+    "price": 14.99,
+    "image_url": "/images/ad_streaming.jpg"
+  },
+  {
+    "id": "d30b05b8-508b-4a52-b8bb-0a370e599982",
+    "name": "SuperFit Health Smartwatch",
+    "tags": "ads,wearables,smartwatch,fitness",
+    "description": "Track your heartbeat, steps, sleep, and workouts with this stylish smartwatch.",
+    "category": "Fitness",
+    "price": 89.99,
+    "image_url": "/images/ad_watch.jpg"
+  },
+  {
+    "id": "d30b05b8-508b-4a52-b8bb-0a370e599983",
+    "name": "Gourmet Coffee Beans Subscription",
+    "tags": "ads,coffee,food,beverages",
+    "description": "Freshly roasted single-origin organic coffee beans delivered to your doorstep monthly.",
+    "category": "Food",
+    "price": 19.99,
+    "image_url": "/images/ad_coffee.jpg"
+  }
+]

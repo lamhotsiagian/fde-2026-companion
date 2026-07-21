@@ -1,0 +1,50 @@
+[
+  {
+    "user_email": "alice@example.com",
+    "session_id": "session_001",
+    "type": "preference",
+    "content": "User prefers high-quality wireless headphones with active noise cancellation and premium cordless electronics."
+  },
+  {
+    "user_email": "alice@example.com",
+    "session_id": "session_001",
+    "type": "fact",
+    "content": "User is a senior software engineer who listens to classical music while coding and is looking for a portable e-reader."
+  },
+  {
+    "user_email": "bob@example.com",
+    "session_id": "session_002",
+    "type": "preference",
+    "content": "User is interested in computer algorithms, database architecture, and distributed system books."
+  },
+  {
+    "user_email": "bob@example.com",
+    "session_id": "session_002",
+    "type": "event",
+    "content": "User clicked on Introduction to Algorithms and Designing Data-Intensive Applications books twice in the last session."
+  },
+  {
+    "user_email": "carol@example.com",
+    "session_id": "session_003",
+    "type": "preference",
+    "content": "User prefers cotton clothing, workout gear, and high-performance running sneakers."
+  },
+  {
+    "user_email": "carol@example.com",
+    "session_id": "session_003",
+    "type": "fact",
+    "content": "User regularly trains for athletic events and runs outdoor marathons."
+  },
+  {
+    "user_email": "dave@example.com",
+    "session_id": "session_004",
+    "type": "preference",
+    "content": "User likes physical book reading on glare-free screens and lightweight literature."
+  },
+  {
+    "user_email": "dave@example.com",
+    "session_id": "session_004",
+    "type": "fact",
+    "content": "User prefers reading outdoors during daytime hours."
+  }
+]

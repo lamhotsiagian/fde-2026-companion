@@ -1,0 +1,24 @@
+# L6 — indirect-injection heuristics for retrieved chunks.
+# Split into named rules (the legacy code had one anonymous alternation) so
+# audit rows can name the rule that fired and rules can be toggled or
+# retired one at a time.
+rules:
+  - name: override-instructions
+    pattern: '(?i)\b(ignore (all|previous|above)|disregard (the|all|previous))'
+    note: Classic instruction override (Greshake et al., 2023).
+
+  - name: role-reassignment
+    pattern: '(?i)\b(you are now|new instructions?:)'
+    note: Persona or instruction replacement inside a document.
+
+  - name: system-prompt-probe
+    pattern: '(?i)\bsystem prompt\b'
+    note: Prompt-extraction probe planted in reference text.
+
+  - name: counter-instruction
+    pattern: '(?i)\b(do not follow|instead,? (do|say|run|execute))'
+    note: Negation / redirection of prior instructions.
+
+  - name: command-smuggling
+    pattern: '(?i)\b(run the command|type /)'
+    note: Tries to trigger the slash-command path from a document.

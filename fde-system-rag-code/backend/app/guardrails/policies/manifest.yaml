@@ -1,0 +1,18 @@
+# Guardrail policy pack — the data plane of the ten-layer stack.
+#
+# Release process (see ebook chapter 12):
+#   1. edit a rule file, bump `version` (CalVer: YYYY.MM.DD-NNN)
+#   2. `pytest tests/guardrails/test_policy_registry.py` + the adversarial suite
+#   3. merge via PR — this directory is owned by platform-security (CODEOWNERS)
+#   4. deploy the files (or update the ConfigMap); the registry hot-reloads
+#      within its TTL, no restart, and logs version + checksum on swap.
+schema: 1
+version: "2026.07.14-001"
+owner: platform-security
+description: >
+  Baseline pack extracted from the legacy constants in validators.py and
+  tool_gate.py; first release of the policy data plane.
+files:
+  pii: pii.yaml
+  injection: injection.yaml
+  commands: commands.yaml

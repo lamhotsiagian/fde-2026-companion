@@ -1,0 +1,20 @@
+# L5 — command risk classes + argument screening.
+# The command *registry* (what exists) stays in code
+# (app.course.routes.COMMANDS_REGISTRY); this file owns *how dangerous* each
+# command is. A command may appear in exactly one risk class.
+destructive:           # HITL confirmation required before execution
+  - reset-tenant-data
+  - reset-memory
+
+expensive:              # per-tenant daily action budget applies
+  - catalog-scale
+  - tenant-users
+  - memory-session
+
+extra_allowed:          # allowlisted but neither destructive nor expensive
+  - catalog
+
+sql_fragment:
+  name: sql-fragment
+  pattern: '(?i)(;|--|\b(drop|delete|truncate|update|insert|alter|grant)\b)'
+  note: Screens every free-string slash-command argument, schema or not.

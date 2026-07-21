@@ -1,0 +1,124 @@
+{
+  "tenants": [
+    {
+      "id": "a10b05b8-508b-4a52-b8bb-0a370e599901",
+      "name": "ACME Retailer"
+    },
+    {
+      "id": "a10b05b8-508b-4a52-b8bb-0a370e599902",
+      "name": "Beta Media"
+    }
+  ],
+  "tenant_users": [
+    {
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599901",
+      "user_email": "alice@example.com",
+      "role": "admin"
+    },
+    {
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599901",
+      "user_email": "bob@example.com",
+      "role": "member"
+    },
+    {
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599902",
+      "user_email": "carol@example.com",
+      "role": "admin"
+    },
+    {
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599902",
+      "user_email": "dave@example.com",
+      "role": "member"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "b10b05b8-508b-4a52-b8bb-0a370e599911",
+      "user_email": "alice@example.com",
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599901",
+      "item_id": "e30b05b8-508b-4a52-b8bb-0a370e599971",
+      "type": "view",
+      "value": 1.0
+    },
+    {
+      "id": "b10b05b8-508b-4a52-b8bb-0a370e599912",
+      "user_email": "alice@example.com",
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599901",
+      "item_id": "e30b05b8-508b-4a52-b8bb-0a370e599971",
+      "type": "rating",
+      "value": 5.0
+    },
+    {
+      "id": "b10b05b8-508b-4a52-b8bb-0a370e599913",
+      "user_email": "alice@example.com",
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599901",
+      "item_id": "e30b05b8-508b-4a52-b8bb-0a370e599972",
+      "type": "rating",
+      "value": 4.0
+    },
+    {
+      "id": "b10b05b8-508b-4a52-b8bb-0a370e599921",
+      "user_email": "bob@example.com",
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599901",
+      "item_id": "e30b05b8-508b-4a52-b8bb-0a370e599973",
+      "type": "view",
+      "value": 1.0
+    },
+    {
+      "id": "b10b05b8-508b-4a52-b8bb-0a370e599922",
+      "user_email": "bob@example.com",
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599901",
+      "item_id": "e30b05b8-508b-4a52-b8bb-0a370e599973",
+      "type": "rating",
+      "value": 5.0
+    },
+    {
+      "id": "b10b05b8-508b-4a52-b8bb-0a370e599923",
+      "user_email": "bob@example.com",
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599901",
+      "item_id": "e30b05b8-508b-4a52-b8bb-0a370e599974",
+      "type": "rating",
+      "value": 4.5
+    },
+    {
+      "id": "b10b05b8-508b-4a52-b8bb-0a370e599931",
+      "user_email": "carol@example.com",
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599902",
+      "item_id": "e30b05b8-508b-4a52-b8bb-0a370e599976",
+      "type": "view",
+      "value": 1.0
+    },
+    {
+      "id": "b10b05b8-508b-4a52-b8bb-0a370e599932",
+      "user_email": "carol@example.com",
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599902",
+      "item_id": "e30b05b8-508b-4a52-b8bb-0a370e599976",
+      "type": "rating",
+      "value": 5.0
+    },
+    {
+      "id": "b10b05b8-508b-4a52-b8bb-0a370e599933",
+      "user_email": "carol@example.com",
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599902",
+      "item_id": "e30b05b8-508b-4a52-b8bb-0a370e599975",
+      "type": "rating",
+      "value": 4.8
+    },
+    {
+      "id": "b10b05b8-508b-4a52-b8bb-0a370e599941",
+      "user_email": "dave@example.com",
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599902",
+      "item_id": "e30b05b8-508b-4a52-b8bb-0a370e599972",
+      "type": "view",
+      "value": 1.0
+    },
+    {
+      "id": "b10b05b8-508b-4a52-b8bb-0a370e599942",
+      "user_email": "dave@example.com",
+      "tenant_id": "a10b05b8-508b-4a52-b8bb-0a370e599902",
+      "item_id": "e30b05b8-508b-4a52-b8bb-0a370e599972",
+      "type": "rating",
+      "value": 4.2
+    }
+  ]
+}

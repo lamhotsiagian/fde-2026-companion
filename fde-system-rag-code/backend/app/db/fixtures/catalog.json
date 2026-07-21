@@ -1,0 +1,56 @@
+[
+  {
+    "id": "e30b05b8-508b-4a52-b8bb-0a370e599971",
+    "name": "SuperCordless Noise-Cancelling Headphones",
+    "tags": "electronics,audio,headphones,wireless",
+    "description": "Premium wireless headphones with high-fidelity sound, active noise cancellation, and 30-hour battery life.",
+    "category": "Electronics",
+    "price": 199.99,
+    "image_url": "/images/headphones.jpg"
+  },
+  {
+    "id": "e30b05b8-508b-4a52-b8bb-0a370e599972",
+    "name": "ProBook E-Reader 6-inch",
+    "tags": "electronics,reading,ereader,books",
+    "description": "Glare-free paperlike screen e-reader with adjustable warm light and waterproof chassis.",
+    "category": "Electronics",
+    "price": 129.99,
+    "image_url": "/images/ereader.jpg"
+  },
+  {
+    "id": "e30b05b8-508b-4a52-b8bb-0a370e599973",
+    "name": "Introduction to Algorithms, Fourth Edition",
+    "tags": "books,education,programming,algorithms",
+    "description": "The leading textbook on computer algorithms, covering techniques, data structures, and mathematical analysis.",
+    "category": "Books",
+    "price": 89.99,
+    "image_url": "/images/algorithms_book.jpg"
+  },
+  {
+    "id": "e30b05b8-508b-4a52-b8bb-0a370e599974",
+    "name": "Designing Data-Intensive Applications",
+    "tags": "books,programming,architecture,databases",
+    "description": "A comprehensive guide to key principles, algorithms, and trade-offs when building modern data systems.",
+    "category": "Books",
+    "price": 49.99,
+    "image_url": "/images/ddia_book.jpg"
+  },
+  {
+    "id": "e30b05b8-508b-4a52-b8bb-0a370e599975",
+    "name": "Unisex Eco-Cotton Crewneck Sweatshirt",
+    "tags": "clothing,sweatshirt,cotton,casual",
+    "description": "Soft, comfortable sweatshirt made from 100% organic cotton and recycled materials.",
+    "category": "Clothing",
+    "price": 39.99,
+    "image_url": "/images/sweatshirt.jpg"
+  },
+  {
+    "id": "e30b05b8-508b-4a52-b8bb-0a370e599976",
+    "name": "Classic Leather Running Sneakers",
+    "tags": "clothing,shoes,sneakers,running",
+    "description": "Ergonomic running shoes with genuine leather overlays and responsive memory foam sole.",
+    "category": "Clothing",
+    "price": 79.99,
+    "image_url": "/images/sneakers.jpg"
+  }
+]

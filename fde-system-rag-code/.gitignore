@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+ebook/
+# Environment / secrets
+.env
+
+# Logs
+logs/
+backend/logs/
+*.log
+
+# Node / Next.js
+node_modules/
+frontend/.next/
+frontend/out/
+
+# LaTeX build artifacts
+*.aux
+*.fls
+*.fdb_latexmk
+*.toc
+*.out
+*.xdv
+*.idx
+*.ilg
+*.ind
+*.aex
+*.pyg
+*.w18
+_minted-*/
+ebook/
+ebook/_preview/
+ebook/_chk/
+
+# OS
+.DS_Store
+
+# Playwright Test Outputs
+frontend/test-results/
+frontend/playwright-report/
+test-results/
+playwright-report/

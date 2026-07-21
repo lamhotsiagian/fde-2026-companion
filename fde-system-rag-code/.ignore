@@ -1,0 +1,12 @@
+# Ignore from searches and other tools
+node_modules/
+.venv/
+venv/
+__pycache__/
+ebook/
+.git/
+.next/
+dist/
+build/
+*.pdf
+*.log
