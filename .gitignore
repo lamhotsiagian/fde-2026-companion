@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# fde-system-rag is its own git repository (see fde-system-rag/.git and
+# fde-system-rag/.gitignore) — its build artifacts, node_modules, logs, etc.
+# are excluded there, not here.

@@ -1,0 +1,6 @@
+{
+  "retrieval_recall": 0.95,
+  "answer_match": 0.90,
+  "citation_present": 0.95,
+  "refusal_when_unsupported": 1.0
+}
