@@ -2,6 +2,11 @@
 
 Companion to *Cracking the Forward Deployed AI Engineer Interview* (2026 edition).
 
+Premium Guide: https://shop.beacons.ai/aiengineeringinsider/9e9d6725-9511-41a2-afd8-9b07d6e307a4
+
+<img width="1241" height="1754" alt="FDE_Ebook_2026-1-30-1-15_page-0001" src="https://github.com/user-attachments/assets/2cdf252c-80c8-48ae-9373-34127be8dd9d" />
+
+
 Everything the book tells you to build, in a form you can run rather than retype out of a PDF.
 
 ```bash
