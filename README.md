@@ -54,15 +54,6 @@ Reports overall and per-slice metrics, p50/p95 latency and cost per 1,000 querie
 non-zero if any tracked metric dropped more than two points against baseline. That last part
 is the whole point: an eval you look at is a dashboard, an eval that can block a merge is a loop.
 
-## Contributing
-
-Corrections welcome, especially to `market-data.md` — it is the file most likely to be wrong
-by the time you read it.
-
-`.gitignore` excludes `__pycache__/`, `.pytest_cache/`, `.venv/`, and `.DS_Store` from this
-repo. `fde-system-rag/` is a separate git repository with its own `.gitignore` (Node,
-Next.js build output, logs, LaTeX build artifacts, etc.) — nothing there is duplicated here.
-
 ## Licence
 
 Code MIT. Book text is not included here and remains © the author.
